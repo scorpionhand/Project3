@@ -1,6 +1,7 @@
 let newYorkCoords = [40.73, -74.0059];
 let mapZoomLevel = 12;
 
+
 // Perform an API call to the Citi Bike API to get the station information. Call createMarkers when it completes.
 const sightingsData = "Data/scrubbed.json"
 d3.json(sightingsData).then(function (DataFromJson) {
@@ -9,19 +10,28 @@ d3.json(sightingsData).then(function (DataFromJson) {
 	//let stationList = DataFromJson.data.stations;
 	//let myMap = createMap(stationList)
 	console.log(DataFromJson)
-	let lat = DataFromJson.latitude
-	console.log(lat[10])
+	createMap(DataFromJson)
+
 });
+
+function createUFOMap(jsonData = [{}]) {
+
+}
 
 // Create the createMap function.
 function createMap(stations = [{}]) {
 	let stationMarkers = []
 	// Loop through the stations array.
+
+
+	/*
 	stations.forEach(station => {
 		let marker = createMarkers(station)
 		// Add the marker to the bikeMarkers array.
 		stationMarkers.push(marker)
 	})
+		*/
+		
 	// Create a layer group that's made from the bike markers array, and pass it to the createMap function.
 	let markerLayerGroup = L.layerGroup(stationMarkers)
 
