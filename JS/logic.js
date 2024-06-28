@@ -2,13 +2,17 @@ let newYorkCoords = [40.73, -74.0059];
 let mapZoomLevel = 12;
 
 // Perform an API call to the Citi Bike API to get the station information. Call createMarkers when it completes.
-const citiApiUrl = "https://gbfs.citibikenyc.com/gbfs/en/station_information.json"
-d3.json(citiApiUrl).then(function (DataFromServer) {
+const sightingsData = "Data/scrubbed.json"
+d3.json(sightingsData).then(function (DataFromJson) {
 	// Pull the "stations" property from response.data.
 	// Initialize an array to hold the bike markers.
-	let stationList = DataFromServer.data.stations;
-	let myMap = createMap(stationList)
+	//let stationList = DataFromJson.data.stations;
+	//let myMap = createMap(stationList)
+	console.log(DataFromJson)
+	let lat = DataFromJson.latitude
+	console.log(lat[10])
 });
+
 // Create the createMap function.
 function createMap(stations = [{}]) {
 	let stationMarkers = []
